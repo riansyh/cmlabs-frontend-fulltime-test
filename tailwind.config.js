@@ -9,6 +9,9 @@ module.exports = {
     "./app.vue",
   ],
   theme: {
+    container: {
+      center: true,
+    },
     extend: {
       colors: {
         "primary": '#F6FAF2',

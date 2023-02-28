@@ -1,5 +1,8 @@
 <template>
-    <div>
-        <h1 class="text-secondary-2 text-3xl font-black">Halo o</h1>
-    </div>
+    <NuxtLayout>
+        <NuxtLoadingIndicator :height="5" :duration="3000" :throttle="400" />
+        <main>
+            <NuxtPage />
+        </main>
+    </NuxtLayout>
 </template>
