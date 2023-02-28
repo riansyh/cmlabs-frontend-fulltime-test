@@ -4,7 +4,13 @@
         <p class="paragraph text-center">Find the ingredient here to see all available meals</p>
         <SearchBox class="mt-4" @searched="searchIngredients" v-model="keyword" />
 
-        <IngredientsList :ingredients="showedIngredients" />
+        <div class="grid grid-cols-3 md:grid-cols-5 gap-2 md:gap-5 mt-6">
+            <IngredientCard
+                v-for="ingredient in showedIngredients"
+                :name="ingredient.strIngredient"
+                :key="ingredient.idIngredient"
+            />
+        </div>
 
         <Pagination
             v-if="ingredients.length >= NUMBER_ITEMS_PER_PAGE"

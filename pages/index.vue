@@ -1,7 +1,7 @@
 <template>
     <section class="hero w-100 bg-secondary-2 relative overflow-hidden">
         <div
-            class="container px-4 py-6 md:h-96 flex-column items-center justify-center relative z-10"
+            class="container px-4 py-20 md:h-96 flex-column items-center justify-center relative z-10"
         >
             <h1 class="h1 text-white">Foodies</h1>
             <p class="paragraph md:max-w-lg text-center mt-2 text-white text-opacity-90">
@@ -21,7 +21,7 @@
         <p class="">Loading...</p>
     </div>
 
-    <IngredientsSection v-if="data.meals" :ingredients="data.meals" />
+    <IngredientsSection v-if="data?.meals" :ingredients="data?.meals" />
 </template>
 
 <script setup>
