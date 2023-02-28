@@ -1,16 +1,26 @@
 <template>
     <button
         @click="clicked"
-        class="text-white bg-secondary-1 hover:bg-secondary-2 font-medium rounded-md px-5 py-2.5 transition-colors"
+        class="button"
+        :class="isPrimary ? 'btn-primary' : 'btn-secondary'"
+        :disabled="disabled"
     >
-        {{ text }}
+        <slot />
     </button>
 </template>
 
 <script setup>
 const props = defineProps({
-    text: { type: String, required: true },
+    isPrimary: {
+        type: Boolean,
+        default: true,
+    },
+    disabled: {
+        type: Boolean,
+        default: false,
+    },
 });
+
 const emit = defineEmits(["clicked"]);
 
 function clicked() {

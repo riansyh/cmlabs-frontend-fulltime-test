@@ -1,14 +1,14 @@
 <template>
     <form
         @submit.prevent="search"
-        class="flex items-center justify-center w-full p-2 rounded-lg shadow-smooth bg-white gap-3"
+        class="flex items-center justify-center w-full p-2 rounded-lg shadow-smooth bg-white gap-3 sticky top-28 z-50"
     >
         <BaseTextField
             v-model.lazy="keyword"
             class="flex-grow"
             placeholder="What are you looking for"
         />
-        <BaseButton text="Search" />
+        <BaseButton> Search </BaseButton>
     </form>
 </template>
 

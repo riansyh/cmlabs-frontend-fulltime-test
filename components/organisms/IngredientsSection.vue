@@ -5,6 +5,16 @@
         <SearchBox class="mt-4" @searched="searchIngredients" v-model="keyword" />
 
         <IngredientsList :ingredients="showedIngredients" />
+
+        <Pagination
+            :item-count="ingredients.length"
+            :item-per-page="NUMBER_INGREDIENTS_PER_PAGE"
+            :start-index="startIndex"
+            class="mt-12"
+            @change-page="changePage"
+            @previous="handlePrev"
+            @next="handleNext"
+        />
     </section>
 </template>
 
@@ -16,7 +26,7 @@ const props = defineProps({
     },
 });
 
-const NUMBER_INGREDIENTS_PER_PAGE = 25;
+const NUMBER_INGREDIENTS_PER_PAGE = 125;
 
 const startIndex = useState("startIndex", () => 0);
 const endIndex = useState("endIndex", () => NUMBER_INGREDIENTS_PER_PAGE);
@@ -36,5 +46,15 @@ const searchIngredients = () => {
         startIndex.value = 0;
         endIndex.value = NUMBER_INGREDIENTS_PER_PAGE;
     }
+};
+
+const changePage = (page) => {
+    // TODO: change start index and end index here
+};
+const handleNext = (page) => {
+    // TODO: change start index and end index here
+};
+const handlePrev = (page) => {
+    // TODO: change start index and end index here
 };
 </script>

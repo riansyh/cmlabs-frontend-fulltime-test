@@ -45,4 +45,14 @@
     .paragraph {
         @apply text-sm md:text-base;
     }
+    .button {
+        @apply font-medium rounded-md px-5 py-2.5 transition-colors disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-current disabled:text-slate-800;
+    }
+
+    .btn-primary {
+        @apply text-white bg-secondary-1 hover:bg-secondary-2;
+    }
+    .btn-secondary {
+        @apply border-[1px] border-gray-300 text-gray-500 hover:text-secondary-2 hover:bg-secondary-1 hover:bg-opacity-5 transition-all;
+    }
 }
