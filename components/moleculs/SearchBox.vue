@@ -1,5 +1,6 @@
 <template>
-    <div
+    <form
+        @submit.prevent="search"
         class="flex items-center justify-center w-full p-2 rounded-lg shadow-smooth bg-white gap-3"
     >
         <BaseTextField
@@ -7,13 +8,13 @@
             class="flex-grow"
             placeholder="What are you looking for"
         />
-        <BaseButton @clicked="search" text="Search" />
-    </div>
+        <BaseButton text="Search" />
+    </form>
 </template>
 
 <script setup>
 const emit = defineEmits(["searched"]);
-const keyword = ref("");
+const keyword = useState("keyword");
 
 function search() {
     emit("searched", keyword);

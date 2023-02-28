@@ -11,14 +11,21 @@
         </div>
         <img
             src="https://i.ibb.co/jk7GmKq/image-10-1-1.png"
+            width="100%"
             alt="Hero banner"
-            class="absolute top-0 left-0 right-0"
+            class="w-full absolute top-0 left-0 right-0"
         />
     </section>
 
-    <section class="food-list container py-12">
-        <h1 class="h2 text-center">All Ingredients</h1>
-        <p class="paragraph text-center">Find the ingredient here to see all available meals</p>
-        <SearchBox class="mt-4" />
-    </section>
+    <div v-if="pending" class="container flex-column items-center justify-center py-12">
+        <p class="">Loading...</p>
+    </div>
+
+    <IngredientsSection v-if="data.meals" :ingredients="data.meals" />
 </template>
+
+<script setup>
+const { data, pending, error, refresh } = await useFetch(
+    "https://www.themealdb.com/api/json/v1/1/list.php?i=list"
+);
+</script>

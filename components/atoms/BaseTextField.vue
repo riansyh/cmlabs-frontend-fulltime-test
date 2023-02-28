@@ -14,5 +14,5 @@ const props = defineProps({
         required: true,
     },
 });
-const value = ref("");
+const value = useState("keyword");
 </script>
