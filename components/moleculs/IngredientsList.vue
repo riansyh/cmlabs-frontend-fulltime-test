@@ -1,6 +1,10 @@
 <template>
-    <div class="grid md:grid-cols-5 gap-5 mt-6">
-        <IngredientCard v-for="ingredient in ingredients" :name="ingredient.strIngredient" />
+    <div class="grid grid-cols-3 md:grid-cols-5 gap-2 md:gap-5 mt-6">
+        <IngredientCard
+            v-for="ingredient in ingredients"
+            :name="ingredient.strIngredient"
+            :key="ingredient.idIngredient"
+        />
     </div>
 </template>
 

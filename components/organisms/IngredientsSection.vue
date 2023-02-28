@@ -7,8 +7,9 @@
         <IngredientsList :ingredients="showedIngredients" />
 
         <Pagination
+            v-if="ingredients.length >= NUMBER_ITEMS_PER_PAGE"
             :item-count="ingredients.length"
-            :item-per-page="NUMBER_INGREDIENTS_PER_PAGE"
+            :item-per-page="NUMBER_ITEMS_PER_PAGE"
             :start-index="startIndex"
             class="mt-12"
             @change-page="changePage"
@@ -26,10 +27,11 @@ const props = defineProps({
     },
 });
 
-const NUMBER_INGREDIENTS_PER_PAGE = 125;
+const NUMBER_ITEMS_PER_PAGE = 120;
 
 const startIndex = useState("startIndex", () => 0);
-const endIndex = useState("endIndex", () => NUMBER_INGREDIENTS_PER_PAGE);
+const endIndex = useState("endIndex", () => NUMBER_ITEMS_PER_PAGE);
+
 // show the ingredients 25 per page
 const ingredients = useState("ingredients", () => props.ingredients);
 const showedIngredients = computed(() => ingredients.value.slice(startIndex.value, endIndex.value));
@@ -44,17 +46,20 @@ const searchIngredients = () => {
 
         ingredients.value = result;
         startIndex.value = 0;
-        endIndex.value = NUMBER_INGREDIENTS_PER_PAGE;
+        endIndex.value = NUMBER_ITEMS_PER_PAGE;
     }
 };
 
 const changePage = (page) => {
-    // TODO: change start index and end index here
+    startIndex.value = (page - 1) * NUMBER_ITEMS_PER_PAGE;
+    endIndex.value = startIndex.value + NUMBER_ITEMS_PER_PAGE;
 };
-const handleNext = (page) => {
-    // TODO: change start index and end index here
+const handleNext = () => {
+    startIndex.value += NUMBER_ITEMS_PER_PAGE;
+    endIndex.value += NUMBER_ITEMS_PER_PAGE;
 };
-const handlePrev = (page) => {
-    // TODO: change start index and end index here
+const handlePrev = () => {
+    startIndex.value -= NUMBER_ITEMS_PER_PAGE;
+    endIndex.value -= NUMBER_ITEMS_PER_PAGE;
 };
 </script>
