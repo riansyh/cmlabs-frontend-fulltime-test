@@ -1,7 +1,10 @@
 <template>
     <section class="food-list container py-12">
         <h1 class="h2 text-center">All Ingredients</h1>
-        <p class="paragraph text-center">Find the ingredient here to see all available meals</p>
+        <p class="paragraph text-center mb-4">
+            Find the ingredient here to see all available meals
+        </p>
+
         <SearchBox class="mt-4" @searched="searchIngredients" v-model="keyword" />
 
         <div class="grid grid-cols-3 md:grid-cols-5 gap-2 md:gap-5 mt-6">
@@ -11,6 +14,17 @@
                 :key="ingredient.idIngredient"
             />
         </div>
+        <emptyState
+            v-if="showedIngredients.length === 0 && keyword === ''"
+            title="No ingredients available"
+            desc="You can try access this page later"
+        />
+        <emptyState
+            v-if="showedIngredients.length === 0 && keyword !== ''"
+            :title="`No ingredients found`"
+            desc="You can try search using another keywords"
+            type="empty search"
+        />
 
         <Pagination
             v-if="ingredients.length >= NUMBER_ITEMS_PER_PAGE"

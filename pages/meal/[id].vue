@@ -10,7 +10,7 @@
 
         <div class="tutorial mt-8">
             <h2 class="h2 text-xl text-center">Video Tutorial</h2>
-            <YoutubeEmbed :id="youtubeId" />
+            <YoutubeEmbed :youtube-id="youtubeId" />
         </div>
     </section>
 </template>

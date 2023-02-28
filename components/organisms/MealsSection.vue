@@ -1,9 +1,5 @@
 <template>
-    <section class="food-list container py-12">
-        <h1 class="h2 text-center">{{ mealName }}</h1>
-        <p class="paragraph text-center">
-            Here are the meals that use {{ mealName }} as an ingredient
-        </p>
+    <section class="food-list">
         <SearchBox class="mt-12" @searched="searchMeals" v-model="keyword" />
 
         <div class="grid grid-cols-3 lg:grid-cols-5 gap-2 md:gap-5 mt-6">
@@ -15,6 +11,18 @@
                 :key="`meal-${meal.idMeal}`"
             />
         </div>
+
+        <emptyState
+            v-if="showedMeals.length === 0 && keyword === ''"
+            title="No meals available"
+            desc="You can try access this page later"
+        />
+        <emptyState
+            v-if="showedMeals.length === 0 && keyword !== ''"
+            :title="`No meals found`"
+            desc="You can try search using another keywords"
+            type="empty search"
+        />
 
         <Pagination
             v-if="meals.length >= NUMBER_ITEMS_PER_PAGE"
@@ -48,8 +56,6 @@ const endIndex = useState("endIndexMeal", () => NUMBER_ITEMS_PER_PAGE);
 
 const meals = useState(`${props.name}-meals`, () => props.meals);
 const showedMeals = computed(() => meals.value.slice(startIndex.value, endIndex.value));
-
-const mealName = computed(() => useCapitalFirstLetter(props?.name?.replace("-", " ")));
 
 const keyword = useState("keyword", () => "");
 const searchMeals = () => {

@@ -13,7 +13,7 @@
 <script setup>
 const props = defineProps({
     youtubeId: {
-        type: Number | String,
+        type: Number,
         required: true,
     },
 });
