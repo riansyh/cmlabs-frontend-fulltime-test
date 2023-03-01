@@ -1,18 +1,18 @@
 <template>
     <section class="container pt-4 pb-10 min-h-screen">
-        <Breadcrumbs :items="breadcrumbItems" />
+        <breadcrumbs :items="breadcrumbItems" />
 
         <h1 class="h1 text-center mt-10">{{ meal.strMeal }}</h1>
-        <MealImage :url="meal.strMealThumb" :name="meal.strMeal" />
+        <meal-image :url="meal.strMealThumb" :name="meal.strMeal" />
 
         <div class="grid md:grid-cols-5 mt-8 gap-12 relative">
-            <MealRecipe :meal="meal" />
-            <MealInstruction :meal="meal" />
+            <meal-recipe :meal="meal" />
+            <meal-instruction :meal="meal" />
         </div>
 
         <div class="tutorial mt-8">
             <h2 class="h2 text-xl text-center">Video Tutorial</h2>
-            <YoutubeEmbed :youtube-id="youtubeId" />
+            <youtube-embed :youtube-id="youtubeId" />
         </div>
     </section>
 </template>

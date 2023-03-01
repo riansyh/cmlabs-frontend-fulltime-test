@@ -1,19 +1,19 @@
 <template>
     <section class="container pt-4 pb-10 min-h-[80vh]">
-        <Breadcrumbs :items="breadcrumbItems" />
+        <breadcrumbs :items="breadcrumbItems" />
         <h1 class="h2 text-center mt-10">{{ ingredientName }}</h1>
         <p class="paragraph text-center mb-12" v-if="data?.meals">
             Here are the meals that use {{ ingredientName }} as an ingredient
         </p>
 
-        <MealsSection v-if="data?.meals" :meals="data?.meals" :name="$route.params.name" />
+        <meals-section v-if="data?.meals" :meals="data?.meals" :name="$route.params.name" />
 
         <div v-if="!data.meals" class="flex-column items-center justify-center">
-            <emptyState
+            <empty-state
                 title="No meals available"
                 desc="Currently there is no meals using this ingredients"
             />
-            <BaseButton @clicked="() => $router.back()">Go Back</BaseButton>
+            <base-button @clicked="() => $router.back()">Go Back</base-button>
         </div>
     </section>
 </template>

@@ -1,28 +1,28 @@
 <template>
     <div class="flex gap-2 md:gap-5 items-center justify-center">
-        <BaseButton
+        <base-button
             @clicked="handlePrev"
             :is-primary="false"
             :disabled="activePages === 1"
             class="px-2"
         >
             Prev
-        </BaseButton>
-        <PageItem
+        </base-button>
+        <page-item
             @clicked="changePage"
             v-for="page in pages"
             :text="page"
             :key="`page-${page}`"
             :isActive="page === activePages"
         />
-        <BaseButton
+        <base-button
             @clicked="handleNext"
             :is-primary="false"
             :disabled="activePages === pages.length"
             class="px-2"
         >
             Next
-        </BaseButton>
+        </base-button>
     </div>
 </template>
 

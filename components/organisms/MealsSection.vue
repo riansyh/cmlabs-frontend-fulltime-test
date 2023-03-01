@@ -1,9 +1,9 @@
 <template>
     <section class="food-list">
-        <SearchBox class="mt-12" @searched="searchMeals" v-model="keyword" name="meals" />
+        <search-box class="mt-12" @searched="searchMeals" v-model="keyword" name="meals" />
 
         <div class="grid sm:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-5 mt-6">
-            <MealCard
+            <meal-card
                 v-for="meal in showedMeals"
                 :name="meal.strMeal"
                 :meal-id="meal.idMeal"
@@ -12,19 +12,19 @@
             />
         </div>
 
-        <emptyState
+        <empty-state
             v-if="showedMeals.length === 0 && keyword === ''"
             title="No meals available"
             desc="You can try access this page later"
         />
-        <emptyState
+        <empty-state
             v-if="showedMeals.length === 0 && keyword !== ''"
             :title="`No meals found`"
             desc="You can try search using another keywords"
             type="empty search"
         />
 
-        <Pagination
+        <pagination
             v-if="meals.length >= NUMBER_ITEMS_PER_PAGE"
             :item-count="meals.length"
             :item-per-page="NUMBER_ITEMS_PER_PAGE"

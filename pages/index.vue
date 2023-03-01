@@ -20,7 +20,7 @@
         <p class="">Loading...</p>
     </div>
 
-    <IngredientsSection v-if="data?.meals" :ingredients="data?.meals" />
+    <ingredients-section v-if="data?.meals" :ingredients="data?.meals" />
 </template>
 
 <script setup>

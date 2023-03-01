@@ -5,7 +5,7 @@
             Find the ingredient here to see all available meals
         </p>
 
-        <SearchBox
+        <search-box
             class="mt-4"
             @searched="searchIngredients"
             v-model="keyword"
@@ -13,25 +13,25 @@
         />
 
         <div class="grid grid-cols-3 md:grid-cols-5 gap-2 md:gap-5 mt-6">
-            <IngredientCard
+            <ingredient-card
                 v-for="ingredient in showedIngredients"
                 :name="ingredient.strIngredient"
                 :key="ingredient.idIngredient"
             />
         </div>
-        <emptyState
+        <empty-state
             v-if="showedIngredients.length === 0 && keyword === ''"
             title="No ingredients available"
             desc="You can try access this page later"
         />
-        <emptyState
+        <empty-state
             v-if="showedIngredients.length === 0 && keyword !== ''"
             :title="`No ingredients found`"
             desc="You can try search using another keywords"
             type="empty search"
         />
 
-        <Pagination
+        <pagination
             v-if="ingredients.length >= NUMBER_ITEMS_PER_PAGE"
             :item-count="ingredients.length"
             :item-per-page="NUMBER_ITEMS_PER_PAGE"
