@@ -11,6 +11,16 @@
             v-model="keyword"
             name="ingredients"
         />
+        <template v-if="keyword">
+            <div class="flex gap-1 justify-center items-center text-center text-gray-500 mt-5">
+                <p class="underline cursor-pointer text-sm text-secondary-1" @click="clearKeyword">
+                    <close-icon />
+                </p>
+                <p class="text-sm">
+                    Showing result for <span class="font-semibold">"{{ keyword }}"</span>
+                </p>
+            </div>
+        </template>
 
         <div class="grid grid-cols-3 md:grid-cols-5 gap-2 md:gap-5 mt-6">
             <ingredient-card
@@ -74,6 +84,10 @@ const searchIngredients = () => {
         endIndex.value = NUMBER_ITEMS_PER_PAGE;
     }
 };
+function clearKeyword() {
+    keyword.value = "";
+    searchIngredients();
+}
 
 const changePage = (page) => {
     startIndex.value = (page - 1) * NUMBER_ITEMS_PER_PAGE;

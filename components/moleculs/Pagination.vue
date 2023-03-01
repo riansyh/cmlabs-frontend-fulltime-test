@@ -6,7 +6,7 @@
             :disabled="activePages === 1"
             class="px-2"
         >
-            Prev
+            <chevron-left-icon class="text-base" />
         </base-button>
         <page-item
             @clicked="changePage"
@@ -21,7 +21,7 @@
             :disabled="activePages === pages.length"
             class="px-2"
         >
-            Next
+            <chevron-right-icon class="text-base" />
         </base-button>
     </div>
 </template>

@@ -46,7 +46,7 @@
         @apply text-sm md:text-base text-slate-700;
     }
     .button {
-        @apply font-medium text-sm md:text-base rounded-md px-5 py-2.5 transition-colors disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-current disabled:text-slate-800;
+        @apply min-h-[46px] min-w-[40px] font-medium text-sm md:text-base rounded-md px-5 py-2.5 transition-colors disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-current disabled:text-slate-800 flex items-center justify-center;
     }
     .btn-primary {
         @apply text-white bg-secondary-1 hover:bg-secondary-2;
