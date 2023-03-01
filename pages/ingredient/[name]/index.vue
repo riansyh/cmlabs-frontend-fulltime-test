@@ -1,8 +1,9 @@
 <template>
-    <section class="container py-12">
-        <h1 class="h2 text-center">{{ mealName }}</h1>
+    <section class="container pt-4 pb-10 min-h-[80vh]">
+        <Breadcrumbs :items="breadcrumbItems" />
+        <h1 class="h2 text-center mt-10">{{ ingredientName }}</h1>
         <p class="paragraph text-center mb-12" v-if="data?.meals">
-            Here are the meals that use {{ mealName }} as an ingredient
+            Here are the meals that use {{ ingredientName }} as an ingredient
         </p>
 
         <MealsSection v-if="data?.meals" :meals="data?.meals" :name="$route.params.name" />
@@ -26,5 +27,12 @@ const { data, pending, error, refresh } = await useFetch(
     `https://themealdb.com/api/json/v1/1/filter.php?i=${apiParams}`
 );
 
-const mealName = computed(() => useCapitalFirstLetter(route.params.name.replace("-", " ")));
+const ingredientName = computed(() => useFormatTitle(route.params.name));
+
+const breadcrumbItems = computed(() => [
+    {
+        name: ingredientName.value,
+        target: `/ingredient/${name}`,
+    },
+]);
 </script>

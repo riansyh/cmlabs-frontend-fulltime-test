@@ -1,6 +1,6 @@
 <template>
-    <NuxtLink
-        :href="`/ingredient/${formatName}`"
+    <nuxt-link
+        :to="`/ingredient/${formatName}`"
         class="px-3 py-4 md:px-4 md:py-7 rounded-lg bg-white group hover:shadow-smooth transition-all text-lg font-semibold text-center cursor-pointer flex-column items-center"
     >
         <img
@@ -11,7 +11,7 @@
             alt="chicken"
         />
         <p class="group-hover:text-secondary-2 mt-2 text-sm md:text-base">{{ name }}</p>
-    </NuxtLink>
+    </nuxt-link>
 </template>
 
 <script setup>

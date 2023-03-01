@@ -1,8 +1,8 @@
 <template>
     <section class="food-list">
-        <SearchBox class="mt-12" @searched="searchMeals" v-model="keyword" />
+        <SearchBox class="mt-12" @searched="searchMeals" v-model="keyword" name="meals" />
 
-        <div class="grid grid-cols-3 lg:grid-cols-5 gap-2 md:gap-5 mt-6">
+        <div class="grid sm:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-5 mt-6">
             <MealCard
                 v-for="meal in showedMeals"
                 :name="meal.strMeal"
@@ -57,7 +57,7 @@ const endIndex = useState("endIndexMeal", () => NUMBER_ITEMS_PER_PAGE);
 const meals = useState(`${props.name}-meals`, () => props.meals);
 const showedMeals = computed(() => meals.value.slice(startIndex.value, endIndex.value));
 
-const keyword = useState("keyword", () => "");
+const keyword = useState("keyword-meals", () => "");
 const searchMeals = () => {
     if (keyword) {
         const filter = new RegExp(`${keyword.value}`, "gi");

@@ -5,7 +5,12 @@
             Find the ingredient here to see all available meals
         </p>
 
-        <SearchBox class="mt-4" @searched="searchIngredients" v-model="keyword" />
+        <SearchBox
+            class="mt-4"
+            @searched="searchIngredients"
+            v-model="keyword"
+            name="ingredients"
+        />
 
         <div class="grid grid-cols-3 md:grid-cols-5 gap-2 md:gap-5 mt-6">
             <IngredientCard
@@ -56,7 +61,7 @@ const endIndex = useState("endIndex", () => NUMBER_ITEMS_PER_PAGE);
 const ingredients = useState("ingredients", () => props.ingredients);
 const showedIngredients = computed(() => ingredients.value.slice(startIndex.value, endIndex.value));
 
-const keyword = useState("keyword", () => "");
+const keyword = useState("keyword-ingredients", () => "");
 const searchIngredients = () => {
     if (keyword) {
         const filter = new RegExp(`${keyword.value}`, "gi");

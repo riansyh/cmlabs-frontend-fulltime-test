@@ -1,7 +1,7 @@
 <template>
-    <NuxtLink
-        :href="`/meal/${mealId}`"
-        class="px-3 py-4 min-h-[100px] sm:min-[120px] md:min-h-[200px] md:px-4 md:py-7 rounded-lg bg-secondary-2 group hover:shadow-smooth transition-all text-lg font-semibold text-center cursor-pointer flex-column items-center justify-center relative overflow-hidden"
+    <nuxt-link
+        :to="`${$route.params.name}/${mealId}`"
+        class="px-3 py-4 min-h-[160px] sm:min-[120px] md:min-h-[200px] md:px-4 md:py-7 rounded-lg bg-secondary-2 group hover:shadow-smooth transition-all text-lg font-semibold text-center cursor-pointer flex-column items-center justify-center relative overflow-hidden"
     >
         <img
             :src="thumb"
@@ -11,7 +11,7 @@
         <p class="mt-2 text-sm md:text-base z-20 text-white transition-all duration-300">
             {{ name }}
         </p>
-    </NuxtLink>
+    </nuxt-link>
 </template>
 
 <script setup>
@@ -29,6 +29,4 @@ const props = defineProps({
         required: true,
     },
 });
-
-const formatName = computed(() => props.name.split(" ").join("-").toLowerCase());
 </script>

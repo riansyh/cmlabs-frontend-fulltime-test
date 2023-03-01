@@ -37,18 +37,17 @@
 
 @layer components {
     .h1 {
-        @apply text-2xl md:text-5xl font-bold;
+        @apply text-4xl md:text-5xl font-bold;
     }
     .h2 {
         @apply text-xl md:text-2xl font-bold;
     }
     .paragraph {
-        @apply text-sm md:text-base;
+        @apply text-sm md:text-base text-slate-700;
     }
     .button {
         @apply font-medium text-sm md:text-base rounded-md px-5 py-2.5 transition-colors disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-current disabled:text-slate-800;
     }
-
     .btn-primary {
         @apply text-white bg-secondary-1 hover:bg-secondary-2;
     }

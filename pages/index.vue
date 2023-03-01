@@ -11,9 +11,8 @@
         </div>
         <img
             src="https://i.ibb.co/jk7GmKq/image-10-1-1.png"
-            width="100%"
             alt="Hero banner"
-            class="w-full absolute top-0 left-0 right-0"
+            class="w-full absolute top-0 left-0 right-0 h-full object-cover"
         />
     </section>
 

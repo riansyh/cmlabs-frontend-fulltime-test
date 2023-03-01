@@ -1,6 +1,8 @@
 <template>
-    <section class="container py-12">
-        <h1 class="h2 text-center">{{ meal.strMeal }}</h1>
+    <section class="container pt-4 pb-10 min-h-screen">
+        <Breadcrumbs :items="breadcrumbItems" />
+
+        <h1 class="h1 text-center mt-10">{{ meal.strMeal }}</h1>
         <MealImage :url="meal.strMealThumb" :name="meal.strMeal" />
 
         <div class="grid md:grid-cols-5 mt-8 gap-12 relative">
@@ -26,4 +28,16 @@ const { data, pending, error, refresh } = await useFetch(
 const meal = await data?.value?.meals[0];
 
 const youtubeId = computed(() => meal?.strYoutube?.split("v=")[1]);
+
+const ingredientName = computed(() => useFormatTitle(route.params.name));
+const breadcrumbItems = computed(() => [
+    {
+        name: ingredientName.value,
+        target: `/ingredient/${route.params.name}`,
+    },
+    {
+        name: meal.strMeal,
+        target: `/ingredient/${route.params.name}/${route.params.id}`,
+    },
+]);
 </script>
