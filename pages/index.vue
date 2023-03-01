@@ -10,11 +10,10 @@
             </p>
         </div>
         <nuxt-img
-            src="https://i.ibb.co/KxKS5X0/foods.png"
+            src="/foods.png"
             alt="Hero banner"
             format="webp"
             class="w-full absolute top-0 left-0 right-0 h-full object-cover"
-            preload
         />
     </section>
 
