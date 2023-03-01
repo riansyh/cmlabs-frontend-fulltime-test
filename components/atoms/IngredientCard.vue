@@ -8,7 +8,7 @@
             height="100"
             width="100"
             :src="`https://www.themealdb.com/images/ingredients/${name}-Small.png`"
-            alt="chicken"
+            :alt="`${formatName}-image`"
             onerror="this.src='https://i.ibb.co/gt5mvDC/placeholder-1.png'"
         />
         <p class="group-hover:text-secondary-2 mt-2 text-sm md:text-base">{{ name }}</p>
