@@ -9,10 +9,12 @@
                 ingredients and meals easily here!
             </p>
         </div>
-        <img
-            src="https://i.ibb.co/jk7GmKq/image-10-1-1.png"
+        <nuxt-img
+            src="https://i.ibb.co/KxKS5X0/foods.png"
             alt="Hero banner"
+            format="webp"
             class="w-full absolute top-0 left-0 right-0 h-full object-cover"
+            preload
         />
     </section>
 

@@ -1,5 +1,10 @@
 <template>
-    <img :src="url" :alt="`${name} photo`" class="w-full object-cover md:h-96 rounded-lg mt-4" />
+    <nuxt-img
+        loading="lazy"
+        :src="url"
+        :alt="`${name} photo`"
+        class="w-full object-cover md:h-96 rounded-lg mt-4"
+    />
 </template>
 
 <script setup>
