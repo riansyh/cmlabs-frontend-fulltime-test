@@ -74,12 +74,7 @@ const showedIngredients = computed(() => ingredients.value.slice(startIndex.valu
 const keyword = useState("keyword-ingredients", () => "");
 const searchIngredients = () => {
     if (keyword) {
-        const filter = new RegExp(`${keyword.value}`, "gi");
-        const result = props.ingredients.filter((ingredient) =>
-            ingredient.strIngredient.match(filter)
-        );
-
-        ingredients.value = result;
+        ingredients.value = useFilterItems(props.ingredients, "strIngredient", keyword.value);
         startIndex.value = 0;
         endIndex.value = NUMBER_ITEMS_PER_PAGE;
     }

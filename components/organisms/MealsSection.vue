@@ -70,10 +70,7 @@ const showedMeals = computed(() => meals.value.slice(startIndex.value, endIndex.
 const keyword = useState("keyword-meals", () => "");
 const searchMeals = () => {
     if (keyword) {
-        const filter = new RegExp(`${keyword.value}`, "gi");
-        const result = props.meals.filter((meal) => meal.strMeal.match(filter));
-
-        meals.value = result;
+        meals.value = useFilterItems(props.meals, "strMeal", keyword.value);
         startIndex.value = 0;
         endIndex.value = NUMBER_ITEMS_PER_PAGE;
     }
