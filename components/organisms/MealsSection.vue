@@ -6,7 +6,7 @@
                 <p class="underline cursor-pointer text-sm text-secondary-1" @click="clearKeyword">
                     <close-icon />
                 </p>
-                <p class="text-sm">
+                <p>
                     Showing result for <span class="font-semibold">"{{ keyword }}"</span>
                 </p>
             </div>

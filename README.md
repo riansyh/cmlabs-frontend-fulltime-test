@@ -23,7 +23,7 @@
     <a href="https://github.com/riansyh/cmlabs-frontend-fulltime-test"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://cmlabs-frontend-fulltime-test.vercel.app/">View Demo</a>
+    <a href="https://foodies-riansyh.vercel.app/">View Demo</a>
     ·
     <a href="https://github.com/riansyh/cmlabs-frontend-fulltime-test/issues">Report Bug</a>
     ·
@@ -60,7 +60,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://cmlabs-frontend-fulltime-test.vercel.app/)
+[![Product Name Screen Shot][product-screenshot]](https://foodies-riansyh.vercel.app/)
 
 This repository is a submission for Pre-assessment Test Front-end Developer in cmlabs.
 
