@@ -6,6 +6,16 @@
             Here are the meals that use {{ ingredientName }} as an ingredient
         </p>
 
+        <div v-if="pending" class="container flex-column items-center justify-center py-12">
+            <loading-spinner />
+        </div>
+        <error-state
+            v-if="error"
+            message="The meals list is not currently available. Please try accessing this page again
+                later"
+        >
+        </error-state>
+
         <meals-section v-if="data?.meals" :meals="data?.meals" :name="$route.params.name" />
 
         <div v-if="!data.meals" class="flex-column items-center justify-center">
@@ -23,7 +33,7 @@ const route = useRoute();
 const name = route.params.name;
 const apiParams = name.split("-").join("_");
 
-const { data, pending, error, refresh } = await useFetch(
+const { data, pending, error } = await useFetch(
     `https://themealdb.com/api/json/v1/1/filter.php?i=${apiParams}`
 );
 

@@ -45,4 +45,8 @@ export default defineNuxtConfig({
     image: {
         domains: ["themealdb.com"],
     },
+
+    routeRules: {
+        '/ingredient': { redirect: '/' },
+    }
 });

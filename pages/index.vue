@@ -18,14 +18,20 @@
     </section>
 
     <div v-if="pending" class="container flex-column items-center justify-center py-12">
-        <p class="">Loading...</p>
+        <loading-spinner />
     </div>
+    <error-state
+        v-if="error"
+        message="The ingredients list is not currently available. Please try accessing this page again
+            later"
+    >
+    </error-state>
 
     <ingredients-section v-if="data?.meals" :ingredients="data?.meals" />
 </template>
 
 <script setup>
-const { data, pending, error, refresh } = await useFetch(
+const { data, pending, error } = await useFetch(
     "https://www.themealdb.com/api/json/v1/1/list.php?i=list"
 );
 </script>
